@@ -6,6 +6,13 @@ Python 3.14
     -Pandas
 
 PostgreSQL
+    setup:
+        CREATE USER {username} WITH ENCRYPTED PASSWORD '{password}';
+
+        CREATE DATABSE olist OWNER {username};
+
+        GRANT ALL PRIVILEGES ON DATABASE olist TO {username};
+
 
 PowerBI
 
