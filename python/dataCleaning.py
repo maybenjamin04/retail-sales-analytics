@@ -5,17 +5,18 @@ import pandas as pd
 
 # merge customers with geolocation
 # 
+# merge sellers with geolocation
+#
 # merge products with product translation
 
-def load_raw_data(path):
-    df = pd.read_csv(path)
-    return df
 
 
-
-customers = load_raw_data('../data/raw/olist_customers_dataset.csv')
-geolocation = load_raw_data('../data/raw/olist_geolocation_dataset.csv')
-sellers = load_raw_data('../data/raw/olist_sellers_dataset.csv')
+customers = pd.read_csv('../data/raw/olist_customers_dataset.csv')
+geolocation = pd.read_csv('../data/raw/olist_geolocation_dataset.csv')
+orders = pd.read_csv('../data/raw/olist_order_items_dataset.csv')
+payments = pd.read_csv('../data/raw/olist_geolocation_dataset.csv')
+geolocation = pd.read_csv('../data/raw/olist_geolocation_dataset.csv')
+sellers = pd.read_csv('../data/raw/olist_sellers_dataset.csv')
 
 
 print(customers.info())
