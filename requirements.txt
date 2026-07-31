@@ -1,0 +1,13 @@
+Dataset
+https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+
+Python 3.14
+    -Pandas
+
+PostgreSQL
+
+PowerBI
+
+Jupyter
+
