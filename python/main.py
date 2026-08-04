@@ -11,4 +11,3 @@ import dataCleaning, loadToPostgreSQL
 if __name__ == '__main__':
     dataCleaning()
     loadToPostgreSQL()
-    

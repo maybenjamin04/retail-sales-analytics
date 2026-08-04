@@ -3,9 +3,10 @@ SELECT
     SUM(price + COALESCE(freight_value, 0)) as revenue
 FROM order_items;
 
-FROM orders t1
+/*FROM orders t1
 INNER JOIN order_items t2 
-    ON t1.id = t2.order_id;
+    ON t1.id = t2.order_id;*/
+
 --number of orders
 SELECT COUNT(*) orders;
 
@@ -36,32 +37,10 @@ GROUP BY DATE(t1.purchase_timestamp)
 ORDER BY DATE(t1.purchase_timestamp);
 
 
---cancled orders
+--canceled orders
 SELECT * orders WHERE order_status = 'canceled';
 
---Revenue by dates
-SELECT 
-    DATE(t1.purchase_timestamp) AS purchase_date,
-    SUM(t2.price) AS total_item_value,
-    SUM(t2.freight_value) AS total_freight_value,
-    SUM(t2.price + COALESCE(t2.freight_value, 0)) AS date_revenue
-FROM orders t1
-INNER JOIN order_items t2 
-    ON t1.id = t2.order_id
-GROUP BY DATE(t1.purchase_timestamp)
-ORDER BY date_revenue DESC;
 
---Num Orders by product category
-SELECT 
-    COUNT(t2.product_id) AS num_items,
-    t1.category_name_english
-FROM products t1
-INNER JOIN order_items t2 
-    ON t2.product_id = t1.id
-GROUP BY t1.category_name_english
-ORDER BY num_items DESC;
-
---
 
 --Revanue by state
 /*SELECT t1.id,

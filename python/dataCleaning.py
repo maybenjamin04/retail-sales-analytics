@@ -54,20 +54,11 @@ if __name__ == '__main__':
 
     #no missing values so fair to put into clean csv
     cleaned_customers = customers.copy(deep=True)
-    #cleaned_customers['customer_zip_code_prefix'] = cleaned_customers['customer_zip_code_prefix'].astype('str').fillna('').str.zfill(5)
-
-
     assert cleaned_customers['customer_id'].is_unique
-    #assert cleaned_customers['customer_unique_id'].is_unique
-
-
     assert cleaned_customers['customer_id'].notna().all()
 
     cleaned_customers.columns = cleaned_customers.columns.str.removeprefix('customer_')
     inspect_dataframe(cleaned_customers, 'customers')
-    #print(cleaned_customers)
-
-
 
 
 
@@ -254,8 +245,8 @@ if __name__ == '__main__':
     CLEANED_CSV = {
             'customers': cleaned_customers,
             'geolocation': cleaned_geolocation ,
-            'order_items': cleaned_order_items,
-            'payments': cleaned_payments,
+            'order_items': cleaned_order_items.round(2),
+            'payments': cleaned_payments.round(2),
             'reviews': cleaned_reviews,
             'orders': cleaned_orders,
             'products': cleaned_translated_products,
